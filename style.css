@@ -1,0 +1,74 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  background-color: #fdfdf9;
+  color: #333;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #f3e8ff;
+  padding: 1rem;
+  text-align: center;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #4b0082;
+  font-weight: bold;
+}
+
+main {
+  padding: 2rem;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f3e8ff;
+  margin-top: 2rem;
+}
+
+.intro blockquote {
+  font-style: italic;
+  color: #6a1b9a;
+}
+
+.services ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.services li {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  background-color: #fffdfc;
+  border-radius: 8px;
+}
+
+.booking-form {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.booking-form button {
+  padding: 0.75rem;
+  background-color: #6a1b9a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
