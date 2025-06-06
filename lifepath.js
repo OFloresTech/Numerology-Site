@@ -1,45 +1,63 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const dobInput = document.getElementById("dob");
+
+  dobInput.addEventListener("input", function (e) {
+    let value = dobInput.value;
+    
+    // Remove all non-digit characters
+    value = value.replace(/\D/g, "");
+
+    // Limit to 8 digits max (DDMMYYYY)
+    if (value.length > 8) {
+      value = value.slice(0, 8);
+    }
+
+    // Add slashes as the user types: DD/MM/YYYY
+    if (value.length > 4) {
+      value = value.replace(/(\d{2})(\d{2})(\d{1,4})/, "$1/$2/$3");
+    } else if (value.length > 2) {
+      value = value.replace(/(\d{2})(\d{1,2})/, "$1/$2");
+    }
+
+    dobInput.value = value;
+  });
+
+  // Your existing form submit logic goes here (or in the same file)
   const form = document.getElementById("lifepath-form");
   const resultDiv = document.getElementById("result");
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    let dobInput = document.getElementById("dob").value.trim();
+    const dobInputValue = dobInput.value.trim();
+    const dobParts = dobInputValue.split("/");
 
-    // Remove all non-digit characters
-    const digitsOnly = dobInput.replace(/\D/g, "");
-
-    // Check if we have exactly 8 digits (MMDDYYYY)
-    if (digitsOnly.length !== 8) {
-      resultDiv.innerHTML = "<p style='color:red;'>Por favor, introduce 8 dígitos para la fecha (MMDDAAAA o DDMMAAAA).</p>";
+    if (dobParts.length !== 3) {
+      resultDiv.innerHTML = "<p style='color:red;'>Por favor, introduce tu fecha en formato DD/MM/AAAA.</p>";
       return;
     }
 
-    // Format as MM/DD/YYYY
-    const month = digitsOnly.substring(0, 2);
-    const day = digitsOnly.substring(2, 4);
-    const year = digitsOnly.substring(4);
-
-    // Optionally validate month/day/year ranges
-    const monthNum = Number(month);
-    const dayNum = Number(day);
-    const yearNum = Number(year);
+    const [day, month, year] = dobParts.map(Number);
 
     if (
-      monthNum < 1 || monthNum > 12 ||
-      dayNum < 1 || dayNum > 31 ||
-      yearNum < 1000
+      isNaN(day) || isNaN(month) || isNaN(year) ||
+      day < 1 || day > 31 || month < 1 || month > 12 || year < 1000
     ) {
-      resultDiv.innerHTML = "<p style='color:red;'>Fecha inválida. Asegúrate de que el mes, día y año sean correctos.</p>";
+      resultDiv.innerHTML = "<p style='color:red;'>Fecha inválida. Asegúrate de usar el formato DD/MM/AAAA.</p>";
       return;
     }
 
- 
-    const formattedDate = `${day}/${month}/${year}`;
+    const isValidDate = (d, m, y) => {
+      const date = new Date(y, m - 1, d);
+      return date && (date.getMonth() + 1) === m && date.getDate() === d && date.getFullYear() === y;
+    };
 
-    // Calculate life path number
-    const digits = formattedDate.replace(/\D/g, "").split("").map(Number);
+    if (!isValidDate(day, month, year)) {
+      resultDiv.innerHTML = "<p style='color:red;'>Fecha inválida. Por favor verifica el día, mes y año.</p>";
+      return;
+    }
+
+    const digits = `${day}${month}${year}`.split("").map(Number);
     let total = digits.reduce((sum, digit) => sum + digit, 0);
 
     while (total > 9 && ![11, 22, 33].includes(total)) {
