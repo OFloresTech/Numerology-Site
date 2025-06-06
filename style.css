@@ -1,5 +1,5 @@
 body {
-  font-family: "Segoe UI", sans-serif;
+  font-family: 'Sofia', cursive;
   margin: 0;
   background-color: #d9eeb6;
   color: #333;
@@ -145,4 +145,65 @@ footer {
 .service-content.open {
   max-height: 200px; /* adjust as needed */
   padding: 1rem;
+}
+.calendly-button {
+  display: block;           /* Makes the button take a full line */
+  width: 100%;              /* Full width of the parent container */
+  max-width: 300px;         /* Optional: max width so it’s not too big on large screens */
+  margin: 10px auto;        /* Center horizontally with vertical spacing */
+  padding: 12px 20px;       /* Comfortable padding */
+  font-size: 1.1rem;        /* Larger, easy-to-read font */
+  background-color: #4a90e2; /* A nice blue (adjust as you like) */
+  color: white;
+  border: none;
+  border-radius: 6px;       /* Rounded corners */
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+  transition: background-color 0.3s ease;
+}
+
+.calendly-button:hover {
+  background-color: #357ABD; /* Darker blue on hover */
+}
+
+@media (max-width: 480px) {
+  .calendly-button {
+    font-size: 1rem;         /* Slightly smaller font on small screens */
+    padding: 10px 16px;
+  }
+}
+.calendly-button {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 20px auto;
+  padding: 10px 16px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #6a11cb, #2575fc); /* Gradient for modern look */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+}
+
+.calendly-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #5f0ecb, #1f63dc);
+}
+
+.calendly-button:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 480px) {
+  .calendly-button {
+    font-size: 1rem;
+    padding: 12px 20px;
+  }
 }
