@@ -162,10 +162,6 @@ footer {
   transition: background-color 0.3s ease;
 }
 
-.calendly-button:hover {
-  background-color: #357ABD; /* Darker blue on hover */
-}
-
 @media (max-width: 480px) {
   .calendly-button {
     font-size: 1rem;
@@ -178,6 +174,7 @@ footer {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
   background: linear-gradient(135deg, #5f0ecb, #1f63dc);
+  background-color: #357ABD;
 }
 
 .calendly-button:active {
