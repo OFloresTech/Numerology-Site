@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calcula tu Número de Vida | Marlene Saavedra Flores</title>
+  <link rel="stylesheet" href="lifepath.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Sofia&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Marlene Saavedra Flores</h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="services.html">Servicios</a>
+      <a href="lifepath.html">Número de Vida</a>
+      <a href="contact.html">Contacto</a>
+    </nav>
+  </header>
+
+  <main class="hero">
+    <h2>¿Cuál es tu Número de Vida?</h2>
+    <p>Tu fecha de nacimiento guarda secretos sobre tu propósito y personalidad. Descubre tu número de vida con esta herramienta gratuita.</p>
+
+    <form id="lifePathForm">
+      <label for="birthdate">Ingresa tu fecha de nacimiento:</label>
+      <input type="date" id="birthdate" required />
+      <button type="submit">Calcular</button>
+    </form>
+
+    <div id="result" class="result hidden"></div>
+
+    <div id="cta" class="cta hidden">
+      <p>¿Quieres saber qué significa tu número de vida?</p>
+      <a href="https://calendly.com/guruobed/30min" target="_blank" class="consult-button">Agenda una consulta personalizada</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Marlene Saavedra Flores - Numerología y Bienestar Holístico</p>
+  </footer>
+
+  <script src="lifepath.js"></script>
+</body>
+</html>
