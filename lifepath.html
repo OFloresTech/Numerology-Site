@@ -22,11 +22,15 @@
     <h2>¿Cuál es tu Número de Vida?</h2>
     <p>Tu fecha de nacimiento guarda secretos sobre tu propósito y personalidad. Descubre tu número de vida con esta herramienta gratuita.</p>
 
-    <form id="lifepath-form" class="lifepath-form">
-  <label for="dob">Introduce tu fecha de nacimiento:</label>
-  <input type="text" id="dob" name="dob" placeholder="DD/MM/AAAA" required>
+    <form id="lifepath-form">
+  <label for="dob">Fecha de nacimiento (DD/MM/AAAA):</label>
+  <input type="text" id="dob" placeholder="Ej. 14/07/1992" required>
   <button type="submit">Calcular</button>
 </form>
+
+<div id="result"></div>
+
+<script src="lifepath.js"></script>
 
     <div id="result" class="result hidden"></div>
 
