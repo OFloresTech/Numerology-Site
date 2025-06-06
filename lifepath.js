@@ -5,25 +5,41 @@ document.addEventListener("DOMContentLoaded", function () {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const dobInput = document.getElementById("dob").value.trim();
-    const dobParts = dobInput.split("/");
+    let dobInput = document.getElementById("dob").value.trim();
 
-    if (dobParts.length !== 3) {
-      resultDiv.innerHTML = "<p style='color:red;'>Por favor, introduce tu fecha en formato DD/MM/AAAA.</p>";
+    // Remove all non-digit characters
+    const digitsOnly = dobInput.replace(/\D/g, "");
+
+    // Check if we have exactly 8 digits (MMDDYYYY)
+    if (digitsOnly.length !== 8) {
+      resultDiv.innerHTML = "<p style='color:red;'>Por favor, introduce 8 dígitos para la fecha (MMDDAAAA o DDMMAAAA).</p>";
       return;
     }
 
-    const [day, month, year] = dobParts.map(Number);
+    // Format as MM/DD/YYYY
+    const month = digitsOnly.substring(0, 2);
+    const day = digitsOnly.substring(2, 4);
+    const year = digitsOnly.substring(4);
+
+    // Optionally validate month/day/year ranges
+    const monthNum = Number(month);
+    const dayNum = Number(day);
+    const yearNum = Number(year);
 
     if (
-      isNaN(day) || isNaN(month) || isNaN(year) ||
-      day < 1 || day > 31 || month < 1 || month > 12 || year < 1000
+      monthNum < 1 || monthNum > 12 ||
+      dayNum < 1 || dayNum > 31 ||
+      yearNum < 1000
     ) {
-      resultDiv.innerHTML = "<p style='color:red;'>Fecha inválida. Asegúrate de usar el formato DD/MM/AAAA.</p>";
+      resultDiv.innerHTML = "<p style='color:red;'>Fecha inválida. Asegúrate de que el mes, día y año sean correctos.</p>";
       return;
     }
 
-    const digits = `${day}${month}${year}`.replace(/\D/g, "").split("").map(Number);
+ 
+    const formattedDate = `${day}/${month}/${year}`;
+
+    // Calculate life path number
+    const digits = formattedDate.replace(/\D/g, "").split("").map(Number);
     let total = digits.reduce((sum, digit) => sum + digit, 0);
 
     while (total > 9 && ![11, 22, 33].includes(total)) {
