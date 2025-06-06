@@ -147,34 +147,27 @@ footer {
   padding: 1rem;
 }
 .calendly-button {
-  display: block;           /* Makes the button take a full line */
-  width: 100%;              /* Full width of the parent container */
-  max-width: 300px;         /* Optional: max width so it’s not too big on large screens */
-  margin: 10px auto;        /* Center horizontally with vertical spacing */
-  padding: 12px 20px;       /* Comfortable padding */
-  font-size: 1.1rem;        /* Larger, easy-to-read font */
-  background-color: #4a90e2; /* A nice blue (adjust as you like) */
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 10px auto;
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  background-color: #4a90e2;
   color: white;
   border: none;
-  border-radius: 6px;       /* Rounded corners */
+  border-radius: 6px;
   cursor: pointer;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16);
-  transition: background-color 0.3s ease;
-}
-
-@media (max-width: 480px) {
-  .calendly-button {
-    font-size: 1rem;
-    padding: 12px 20px;
-    width: 95%;       
-  }
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 .calendly-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
   background: linear-gradient(135deg, #5f0ecb, #1f63dc);
-  background-color: #357ABD;
 }
 
 .calendly-button:active {
@@ -182,3 +175,11 @@ footer {
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
 
+@media (max-width: 480px) {
+  .calendly-button {
+    font-size: 1rem;
+    padding: 12px 20px;
+    width: 95%;
+    max-width: 100%;
+  }
+}
