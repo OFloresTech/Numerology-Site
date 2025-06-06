@@ -168,8 +168,9 @@ footer {
 
 @media (max-width: 480px) {
   .calendly-button {
-    font-size: 1rem;         /* Slightly smaller font on small screens */
-    padding: 10px 16px;
+    font-size: 1rem;
+    padding: 12px 20px;
+    width: 95%;       
   }
 }
 .calendly-button {
@@ -188,6 +189,7 @@ footer {
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .calendly-button:hover {
@@ -201,9 +203,3 @@ footer {
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 480px) {
-  .calendly-button {
-    font-size: 1rem;
-    padding: 12px 20px;
-  }
-}
